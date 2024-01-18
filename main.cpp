@@ -172,7 +172,7 @@ void test_sizeof()
     P_FORMAT_BEGIN << " sizeof &t_ptr = " << sizeof(&t_ptr) << "\n";
 }
 template <typename T>
-void test(const std::vector<T> &v, std::string_view typeName)
+void test(const std::vector<T> &v, const char * typeName)
 {
     P_FORMAT_BEGIN_T << "[" << typeName << "]\n";
     P_FORMAT_BEGIN_N(21) << "vector = [";
@@ -188,7 +188,7 @@ void test(const std::vector<T> &v, std::string_view typeName)
 }
 
 template <typename T>
-void default_test(std::string_view typeName)
+void default_test(const char * typeName)
 {
     test(std::vector<T>{std::numeric_limits<T>::max(), static_cast<T>(1)}, typeName);
 }
