@@ -154,12 +154,28 @@ auto sum(const std::vector<T> &v) -> T
     }
     return sum;
 }
-
+template <typename T, typename Operator>
+auto operate(const std::vector<T> &v) -> T
+{
+    T v{0};
+    for (const auto i : v)
+    {
+        v = Operator(v,i)
+    }
+    return v;
+}
 template <typename T>
 auto sum_algorithm(const std::vector<T> &v) -> T
 {
     return std::accumulate(v.cbegin(), v.cend(), static_cast<T>(0)); // add cast!
 }
+template <typename T, typename Operator>
+auto algorithm(const std::vector<T> &v) -> T
+{
+       return  std::transform(v.cbegin(), v.cend(), v.cbegin(),
+                   v.begin(), Operator);
+}
+
 
 template <typename T>
 void test_sizeof()
@@ -181,7 +197,7 @@ void test(const std::vector<T> &v, const char * typeName)
         std::cout << value << " ";
     }
     std::cout << "]\n";
-    P_FORMAT_BEGIN << " sum = " << sum(v) << "\n";
+    P_FORMAT_BEGIN << " sum = " << operate(v, std::plus<T>) << "\n";
     P_FORMAT_BEGIN << " sum_algorithm = " << sum_algorithm(v) << "\n";
     test_sizeof<T>();
     P_FORMAT_BEGIN_T << "\n";
