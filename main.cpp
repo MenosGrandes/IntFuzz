@@ -7,12 +7,7 @@
 #include <numeric>
 #include <string>
 #include <vector>
-
-int get_int_size_c()
-{
-    int c;
-    return sizeof(c);
-}
+#include <iomanip>
 
 template <typename T>
 struct SizeOfT_t
@@ -117,30 +112,36 @@ using default_int = default_int_t::type;
 static constexpr auto INT_SIZE = get_int_type();
 static constexpr auto INT_SIZE_2 = get_int_type_2();
 
+#define P_FORMAT_BEGIN_N(N) std::cout << std::setw(N)
+#define P_FORMAT_BEGIN P_FORMAT_BEGIN_N(20)
+#define P_FORMAT_BEGIN_T P_FORMAT_BEGIN_N(1)
+#define P_FORMAT_BEGIN_V P_FORMAT_BEGIN_N(1)
+#define P_FORMAT_BEGIN_V_2 P_FORMAT_BEGIN_N(1)
+
 void test_1(int64_t v)
 {
     (void)v;
-    std::cout << "64\n";
+    P_FORMAT_BEGIN << "int = [64]";
 };
 void test_1(int32_t v)
 {
     (void)v;
-    std::cout << "32\n";
+    P_FORMAT_BEGIN << "int = [32]";
 };
 void test_1(int16_t v)
 {
     (void)v;
-    std::cout << "16\n";
+    P_FORMAT_BEGIN << "int = [16]";
 };
 void test_1(int8_t v)
 {
     (void)v;
-    std::cout << "8\n";
+    P_FORMAT_BEGIN << "int = [8]";
 };
 void test_1(int *v)
 {
     (void)v;
-    std::cout << "pointer\n";
+    P_FORMAT_BEGIN << "int = [pointer]";
 };
 
 template <typename T>
@@ -157,22 +158,38 @@ auto sum(const std::vector<T> &v) -> T
 template <typename T>
 auto sum_algorithm(const std::vector<T> &v) -> T
 {
-    return std::accumulate(v.begin(), v.end(), static_cast<T>(0)); // add cast!
+    return std::accumulate(v.cbegin(), v.cend(), static_cast<T>(0)); // add cast!
 }
 
 template <typename T>
+void test_sizeof()
+{
+    T t{T{}};
+    T *t_ptr{nullptr};
+    P_FORMAT_BEGIN << " sizeof(T) = " << sizeof(t) << "\n";
+    P_FORMAT_BEGIN << " sizeof t_ptr = " << sizeof(t_ptr) << "\n";
+    P_FORMAT_BEGIN << " sizeof *t_ptr = " << sizeof(*t_ptr) << "\n";
+    P_FORMAT_BEGIN << " sizeof &t_ptr = " << sizeof(&t_ptr) << "\n";
+}
+template <typename T>
 void test(const std::vector<T> &v, std::string_view typeName)
 {
-    std::cout << "!@!@ START for [" << typeName << "] !@\n";
-    std::cout << "\t" << sum(v) << "\n";
-    std::cout << "\t" << sum_algorithm(v) << "\n";
-    std::cout << "!@!@ END !@\n";
+    P_FORMAT_BEGIN_T << "[" << typeName << "]\n";
+    P_FORMAT_BEGIN_N(21) << "vector = [";
+    for (const T &value : v)
+    {
+        std::cout << value << " ";
+    }
+    std::cout << "]\n";
+    P_FORMAT_BEGIN << " sum = " << sum(v) << "\n";
+    P_FORMAT_BEGIN << " sum_algorithm = " << sum_algorithm(v) << "\n";
+    test_sizeof<T>();
+    P_FORMAT_BEGIN_T << "\n";
 }
 
 template <typename T>
 void default_test(std::string_view typeName)
 {
-
     test(std::vector<T>{std::numeric_limits<T>::max(), static_cast<T>(1)}, typeName);
 }
 
@@ -217,16 +234,14 @@ int main()
     TEST_FOR_MACRO(unsigned long long);
     TEST_FOR_MACRO(unsigned long long int);
 
-    std::cout << "IF CONSTEXPR " << static_cast<int>(INT_SIZE) << "\n";
-    std::cout << "IntDefaultT " << static_cast<int>(INT_SIZE_2) << "\n";
-    default_int i = 0;
-    std::cout << " function dispatch \n";
-    test_1(i);
-    int *a{nullptr};
-    std::cout << "sizeof(a) = " << sizeof(a) << "\n";
-    std::cout << "sizeof(*a) = " << sizeof(*a) << "\n";
-    std::cout << "sizeof(&a) = " << sizeof(&a) << "\n";
+    P_FORMAT_BEGIN_T << "\n";
 
-    std::cout << "SIZEOF = " << get_int_size_c() << "\n";
-    delete a;
+    P_FORMAT_BEGIN_T << "IF CONSTEXPR int size = [" << static_cast<int>(INT_SIZE) << "]\n";
+    P_FORMAT_BEGIN_T << "IntDefaultT int size = [" << static_cast<int>(INT_SIZE_2) << "]\n";
+    default_int i = 0;
+    P_FORMAT_BEGIN_T << "function dispatch ";
+    test_1(i);
+    P_FORMAT_BEGIN_T << "\n";
+
+    return 0;
 }
