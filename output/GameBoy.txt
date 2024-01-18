@@ -1,0 +1,165 @@
+[uint8_t] 
+ sizeof(T) =  1
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  1
+ sizeof &t_ptr =  2
+ [uint16_t] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [uint32_t] 
+ sizeof(T) =  4
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  4
+ sizeof &t_ptr =  2
+ [uint64_t] 
+ sizeof(T) =  8
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  8
+ sizeof &t_ptr =  2
+ [int8_t] 
+ sizeof(T) =  1
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  1
+ sizeof &t_ptr =  2
+ [int16_t] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [int32_t] 
+ sizeof(T) =  4
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  4
+ sizeof &t_ptr =  2
+ [int64_t] 
+ sizeof(T) =  8
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  8
+ sizeof &t_ptr =  2
+ [signed char] 
+ sizeof(T) =  1
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  1
+ sizeof &t_ptr =  2
+ [unsigned char] 
+ sizeof(T) =  1
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  1
+ sizeof &t_ptr =  2
+ [short] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [short int] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [signed short] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [signed short int] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [unsigned short] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [unsigned short int] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [int] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [signed] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [signed int] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [unsigned] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [unsigned int] 
+ sizeof(T) =  2
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  2
+ sizeof &t_ptr =  2
+ [long] 
+ sizeof(T) =  4
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  4
+ sizeof &t_ptr =  2
+ [long int] 
+ sizeof(T) =  4
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  4
+ sizeof &t_ptr =  2
+ [signed long] 
+ sizeof(T) =  4
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  4
+ sizeof &t_ptr =  2
+ [signed long int] 
+ sizeof(T) =  4
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  4
+ sizeof &t_ptr =  2
+ [unsigned long] 
+ sizeof(T) =  4
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  4
+ sizeof &t_ptr =  2
+ [unsigned long int] 
+ sizeof(T) =  4
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  4
+ sizeof &t_ptr =  2
+ [long long] 
+ sizeof(T) =  8
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  8
+ sizeof &t_ptr =  2
+ [long long int] 
+ sizeof(T) =  8
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  8
+ sizeof &t_ptr =  2
+ [signed long long] 
+ sizeof(T) =  8
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  8
+ sizeof &t_ptr =  2
+ [signed long long int] 
+ sizeof(T) =  8
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  8
+ sizeof &t_ptr =  2
+ [unsigned long long] 
+ sizeof(T) =  8
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  8
+ sizeof &t_ptr =  2
+ [unsigned long long int] 
+ sizeof(T) =  8
+ sizeof t_ptr = 2
+ sizeof *t_ptr =  8
+ sizeof &t_ptr =  2
