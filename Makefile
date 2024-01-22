@@ -3,15 +3,30 @@
 # compiler flags:
 #  -g     - this flag adds debugging information to the executable file
 #  -Wall  - this flag is used to turn on most compiler warnings
-CFLAGS  = -g -Wall -std=c++17 -Wextra -Werror
+CFLAGS  = -g -std=c++17 
+CFLAGS_ADD  = $(CLAGS) -Wall -Werror -Woverflow
 
-# The build target 
-TARGET = main
 
-all: $(TARGET)
+OBJ=obj/
+SRC=src/
+INCLUDE=include/
+BUILD=build
+OBJS=$(patsubst %.cpp, %.o, $(wildcard $(SRC)*.cpp))
 
-$(TARGET): $(TARGET).cpp
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).cpp
+$(OBJ)%.o : $(SRC)%.cpp
+	g++ -c $(INCLUDE) $< -o $@
 
+
+no_opt: $(OBJS) build 
+	$(CC) $(CFLAGS) main.cpp -o $(BUILD)/main_no_opt
+
+opt: $(OBJS) build 
+	$(CC) $(CFLAGS_ADD) main.cpp -o $(BUILD)/main_opt
+
+build:
+	mkdir -p $(BUILD)
 clean:
-	$(RM) $(TARGET)
+	rm -rf build
+
+# These rules do not correspond to a specific file
+.PHONY: build clean no_opt opt
